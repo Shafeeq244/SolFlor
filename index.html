@@ -1,0 +1,1836 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sol Flor Bahamas | Luxury Floral Designs</title>
+
+    <meta name="description" content="Sol Flor Bahamas creates luxury floral arrangements, custom bouquets and unforgettable gifts throughout the Bahamas.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =====================================================
+           SOL FLOR BAHAMAS
+           GitHub Pages Ready
+           ===================================================== */
+
+        :root {
+            --cream: #fffaf7;
+            --cream-dark: #f8eee9;
+            --white: #ffffff;
+
+            --rose: #d99aa8;
+            --rose-dark: #bd7183;
+
+            --sage: #9caf91;
+            --sage-dark: #71816a;
+
+            --gold: #c9a45c;
+            --gold-light: #e7cf98;
+
+            --dark: #292522;
+            --gray: #746e6a;
+            --light-gray: #eee7e3;
+
+            --shadow:
+                0 15px 45px rgba(80, 52, 43, 0.09);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", Arial, sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+           DECORATIVE FLOWERS
+           ===================================================== */
+
+        .flower {
+            position: absolute;
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+        }
+
+        .flower-one {
+            top: 120px;
+            left: -20px;
+            font-size: 130px;
+            color: rgba(217, 154, 168, 0.12);
+            transform: rotate(-25deg);
+        }
+
+        .flower-two {
+            top: 500px;
+            right: -25px;
+            font-size: 150px;
+            color: rgba(156, 175, 145, 0.13);
+            transform: rotate(25deg);
+        }
+
+
+        /* =====================================================
+           TOP BAR
+           ===================================================== */
+
+        .top-bar {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 9px 15px;
+
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           HEADER
+           ===================================================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 250, 247, 0.94);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+
+            padding: 14px 6%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .logo-container img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: block;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 1.5rem;
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            color: var(--gold);
+        }
+
+        .logo-tagline {
+            display: block;
+
+            font-size: 0.6rem;
+            letter-spacing: 1.5px;
+
+            color: var(--gray);
+
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+            align-items: center;
+
+            gap: 28px;
+        }
+
+        nav a {
+            font-size: 0.88rem;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--rose-dark);
+        }
+
+        .nav-order {
+            background: var(--rose);
+            color: white;
+
+            padding: 10px 19px;
+
+            border-radius: 30px;
+
+            box-shadow: 0 7px 20px rgba(217,154,168,0.25);
+        }
+
+        .nav-order:hover {
+            background: var(--rose-dark);
+            color: white;
+        }
+
+
+        /* =====================================================
+           HERO
+           ===================================================== */
+
+        .hero {
+            min-height: 720px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 100px 20px;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    rgba(47, 34, 31, 0.35),
+                    rgba(47, 34, 31, 0.58)
+                ),
+                url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&q=90&w=2000");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-script {
+            font-family: "Great Vibes", cursive;
+
+            font-size: clamp(2.3rem, 5vw, 4rem);
+
+            color: #f4d99c;
+
+            margin-bottom: -8px;
+        }
+
+        .hero h1 {
+            color: white;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(3rem, 7vw, 6rem);
+
+            line-height: 1.02;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #f0cfd5;
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            margin: 0 auto 35px;
+
+            color: #f7f1ed;
+
+            font-size: 1.08rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 14px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 14px 28px;
+
+            border-radius: 50px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--rose);
+            color: white;
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary:hover {
+            background: var(--rose-dark);
+            transform: translateY(-3px);
+        }
+
+        .btn-light {
+            background: rgba(255,255,255,0.12);
+
+            color: white;
+
+            border: 1px solid rgba(255,255,255,0.7);
+
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-light:hover {
+            background: white;
+            color: var(--dark);
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =====================================================
+           INTRO
+           ===================================================== */
+
+        .intro {
+            max-width: 850px;
+
+            margin: auto;
+
+            text-align: center;
+
+            padding: 100px 20px 60px;
+
+            position: relative;
+        }
+
+        .eyebrow {
+            color: var(--rose-dark);
+
+            font-size: 0.72rem;
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 10px;
+        }
+
+        .script-heading {
+            font-family: "Great Vibes", cursive;
+
+            color: var(--gold);
+
+            font-size: 2.3rem;
+
+            margin-bottom: -5px;
+        }
+
+        .intro h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+
+            margin-bottom: 18px;
+        }
+
+        .intro p {
+            color: var(--gray);
+
+            max-width: 700px;
+
+            margin: auto;
+
+            font-size: 1rem;
+        }
+
+
+        /* =====================================================
+           FLOWER DIVIDER
+           ===================================================== */
+
+        .flower-divider {
+            text-align: center;
+
+            color: var(--gold);
+
+            font-size: 1.5rem;
+
+            margin: 10px 0 45px;
+
+            letter-spacing: 15px;
+        }
+
+
+        /* =====================================================
+           PRODUCTS
+           ===================================================== */
+
+        .products-section {
+            padding: 20px 20px 100px;
+
+            position: relative;
+        }
+
+        .container {
+            max-width: 1250px;
+
+            margin: auto;
+        }
+
+        .product-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 28px;
+        }
+
+        .product-card {
+            background: white;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            border: 1px solid #eee5e1;
+
+            box-shadow: var(--shadow);
+
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-9px);
+
+            box-shadow:
+                0 25px 60px rgba(80,52,43,0.14);
+        }
+
+        .product-image-wrap {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 100%;
+
+            height: 360px;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: transform 0.7s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.06);
+        }
+
+        .badge {
+            position: absolute;
+
+            top: 15px;
+            left: 15px;
+
+            background: rgba(255,255,255,0.94);
+
+            color: var(--dark);
+
+            padding: 7px 13px;
+
+            border-radius: 30px;
+
+            font-size: 0.67rem;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .product-info {
+            padding: 27px;
+        }
+
+        .product-info h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 1.45rem;
+
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: var(--gray);
+
+            font-size: 0.9rem;
+
+            margin-bottom: 15px;
+        }
+
+        .price-tag {
+            display: block;
+
+            color: var(--rose-dark);
+
+            font-size: 1.15rem;
+
+            font-weight: 700;
+
+            margin-bottom: 10px;
+        }
+
+        .note {
+            color: #999 !important;
+
+            font-size: 0.76rem !important;
+        }
+
+        .card-btn {
+            display: block;
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            padding: 12px;
+
+            background: var(--cream-dark);
+
+            border-radius: 9px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .card-btn:hover {
+            background: var(--rose);
+
+            color: white;
+        }
+
+
+        /* =====================================================
+           CUSTOM SECTION
+           ===================================================== */
+
+        .custom-section {
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(217,154,168,0.18),
+                    transparent 35%
+                ),
+                var(--dark);
+
+            color: white;
+
+            padding: 105px 7%;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .custom-section::after {
+            content: "✿";
+
+            position: absolute;
+
+            right: -50px;
+            bottom: -100px;
+
+            font-size: 330px;
+
+            color: rgba(255,255,255,0.035);
+        }
+
+        .custom-inner {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .custom-image {
+            width: 100%;
+
+            height: 520px;
+
+            object-fit: cover;
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.25);
+        }
+
+        .custom-section .eyebrow {
+            color: #e7c978;
+        }
+
+        .custom-section h2 {
+            color: white;
+
+            font-size: clamp(2.4rem, 5vw, 4rem);
+
+            line-height: 1.1;
+
+            margin-bottom: 20px;
+        }
+
+        .custom-section p {
+            color: #d8d3d0;
+
+            margin-bottom: 18px;
+        }
+
+        .custom-price {
+            color: #e7c978 !important;
+
+            font-weight: 700;
+
+            font-size: 1.15rem;
+        }
+
+
+        /* =====================================================
+           WHY SOL FLOR
+           ===================================================== */
+
+        .why-section {
+            padding: 100px 20px;
+
+            text-align: center;
+        }
+
+        .why-grid {
+            max-width: 1000px;
+
+            margin: 50px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .why-card {
+            background: white;
+
+            padding: 35px 25px;
+
+            border-radius: 18px;
+
+            border: 1px solid #eee7e3;
+
+            box-shadow: var(--shadow);
+        }
+
+        .why-icon {
+            font-size: 2.2rem;
+
+            margin-bottom: 15px;
+        }
+
+        .why-card h3 {
+            font-size: 1.25rem;
+
+            margin-bottom: 8px;
+        }
+
+        .why-card p {
+            color: var(--gray);
+
+            font-size: 0.9rem;
+        }
+
+
+        /* =====================================================
+           ORDER SECTION
+           ===================================================== */
+
+        .order-section {
+            padding: 100px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8e9e9,
+                    #fffaf7,
+                    #edf2e9
+                );
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .order-section h2 {
+            font-size: clamp(2.3rem, 5vw, 3.8rem);
+
+            margin-bottom: 15px;
+        }
+
+        .order-section p {
+            max-width: 650px;
+
+            margin: 0 auto 30px;
+
+            color: var(--gray);
+        }
+
+        .deposit {
+            font-weight: 700;
+
+            color: var(--rose-dark) !important;
+
+            margin-top: 18px !important;
+        }
+
+
+        /* =====================================================
+           CONTACT
+           ===================================================== */
+
+        .contact-section {
+            padding: 90px 20px;
+
+            background: white;
+
+            text-align: center;
+        }
+
+        .contact-grid {
+            max-width: 800px;
+
+            margin: 45px auto 0;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .contact-card {
+            padding: 30px;
+
+            background: var(--cream);
+
+            border-radius: 16px;
+
+            border: 1px solid #eee7e3;
+        }
+
+        .contact-card-icon {
+            font-size: 1.8rem;
+
+            margin-bottom: 10px;
+        }
+
+        .contact-card strong {
+            display: block;
+
+            color: var(--gold-dark);
+
+            margin-bottom: 5px;
+        }
+
+        .contact-card a {
+            font-weight: 700;
+
+            font-size: 1.05rem;
+
+            transition: 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--rose-dark);
+        }
+
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        footer {
+            background: var(--dark);
+
+            color: #bbb;
+
+            text-align: center;
+
+            padding: 50px 20px 30px;
+        }
+
+        .footer-logo {
+            font-family: "Playfair Display", serif;
+
+            color: #e1c675;
+
+            font-size: 1.7rem;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 5px;
+        }
+
+        .footer-script {
+            font-family: "Great Vibes", cursive;
+
+            color: #d99aa8;
+
+            font-size: 1.7rem;
+
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.08);
+
+            padding-top: 20px;
+
+            margin-top: 20px;
+
+            font-size: 0.75rem;
+
+            color: #888;
+        }
+
+
+        /* =====================================================
+           WHATSAPP BUTTON
+           ===================================================== */
+
+        .whatsapp {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            width: 58px;
+            height: 58px;
+
+            border-radius: 50%;
+
+            background: #25D366;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 1.6rem;
+
+            box-shadow:
+                0 10px 30px rgba(37,211,102,0.3);
+
+            z-index: 2000;
+
+            transition: 0.3s;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+
+        /* =====================================================
+           BACK TO TOP
+           ===================================================== */
+
+        .back-top {
+            position: fixed;
+
+            right: 25px;
+            bottom: 95px;
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 50%;
+
+            background: var(--dark);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 1.1rem;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition: 0.3s;
+
+            z-index: 1500;
+        }
+
+        .back-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+           ===================================================== */
+
+        @keyframes floatFlower {
+            0%, 100% {
+                transform: translateY(0) rotate(-10deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+        }
+
+        .flower-one,
+        .flower-two {
+            animation: floatFlower 6s ease-in-out infinite;
+        }
+
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (max-width: 850px) {
+
+            header {
+                padding: 12px 18px;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 0.75rem;
+            }
+
+            .nav-order {
+                padding: 8px 12px;
+            }
+
+            .custom-inner {
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+            }
+
+            .custom-image {
+                height: 400px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .top-bar {
+                font-size: 0.6rem;
+
+                letter-spacing: 1px;
+            }
+
+            header {
+                position: relative;
+
+                flex-direction: column;
+
+                gap: 12px;
+            }
+
+            .logo-container {
+                justify-content: center;
+            }
+
+            nav ul {
+                justify-content: center;
+
+                flex-wrap: wrap;
+            }
+
+            .hero {
+                min-height: 620px;
+
+                padding: 80px 18px;
+            }
+
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-img {
+                height: 330px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .custom-image {
+                height: 330px;
+            }
+
+            .whatsapp {
+                right: 15px;
+                bottom: 15px;
+            }
+
+            .back-top {
+                right: 18px;
+                bottom: 85px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- TOP ANNOUNCEMENT -->
+    <div class="top-bar">
+        ✿ Luxury Floral Designs • Handcrafted in The Bahamas ✿
+    </div>
+
+
+    <!-- HEADER -->
+    <header>
+
+        <a href="#" class="logo-container">
+
+            <img
+                src="images/logo.png"
+                alt="Sol Flor Bahamas Logo"
+            >
+
+            <div>
+                <span class="logo-text">SOL FLOR</span>
+
+                <span class="logo-tagline">
+                    A little sunshine in every design
+                </span>
+            </div>
+
+        </a>
+
+
+        <nav>
+            <ul>
+
+                <li>
+                    <a href="#bouquets">
+                        Collections
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#custom">
+                        Custom
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact" class="nav-order">
+                        Order
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <!-- DECORATIVE FLOWERS -->
+
+    <div class="flower flower-one">✿</div>
+
+    <div class="flower flower-two">✿</div>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-script">
+                A little sunshine...
+            </div>
+
+            <h1>
+                Flowers Made<br>
+                <span>Beautifully.</span>
+            </h1>
+
+            <p>
+                Luxury floral arrangements, thoughtful gifts,
+                and unforgettable designs crafted with love
+                in the beautiful Bahamas.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#bouquets"
+                    class="btn btn-primary"
+                >
+                    Explore Our Flowers
+                </a>
+
+                <a
+                    href="#custom"
+                    class="btn btn-light"
+                >
+                    Create Something Custom
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+
+    <section class="intro" id="about">
+
+        <div class="eyebrow">
+            Welcome to Sol Flor
+        </div>
+
+        <div class="script-heading">
+            Made with love
+        </div>
+
+        <h2>
+            Where Every Flower Tells a Story
+        </h2>
+
+        <p>
+            At Sol Flor Bahamas, we believe flowers are more than
+            beautiful. They're a way to celebrate love, friendship,
+            birthdays, milestones, and all of life's special moments.
+        </p>
+
+    </section>
+
+
+    <div class="flower-divider">
+        ✿ ❀ ✿
+    </div>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="products-section" id="bouquets">
+
+        <div class="container">
+
+            <div class="product-grid">
+
+
+                <!-- PRODUCT 1 -->
+
+                <div class="product-card">
+
+                    <div class="product-image-wrap">
+
+                        <span class="badge">
+                            Signature
+                        </span>
+
+                        <img
+                            src="images/teddy.jpg"
+                            alt="Mr. Hugs and Kisses flower teddy bear"
+                            class="product-img"
+                        >
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            Mr. Hugs & Kisses
+                        </h3>
+
+                        <p>
+                            A teddy bear made completely from
+                            real flowers paired with one dozen
+                            beautiful roses.
+                        </p>
+
+                        <span class="price-tag">
+                            $400
+                        </span>
+
+                        <p class="note">
+                            *Must be ordered 2 weeks in advance.
+                        </p>
+
+                        <a
+                            href="#contact"
+                            class="card-btn"
+                        >
+                            Order This Arrangement
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 2 -->
+
+                <div class="product-card">
+
+                    <div class="product-image-wrap">
+
+                        <span class="badge">
+                            Best Seller
+                        </span>
+
+                        <img
+                            src="images/lovebomb.jpg"
+                            alt="Love Bomb glitter rose bouquet"
+                            class="product-img"
+                        >
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            Love Bomb Bouquet
+                        </h3>
+
+                        <p>
+                            Classic red roses with a sparkling
+                            twist of glitter roses for an extra
+                            special touch.
+                        </p>
+
+                        <span class="price-tag">
+                            From $225
+                        </span>
+
+                        <p class="note">
+                            2 Dozen: $225 Half Glitter /
+                            $250 Whole Glitter
+                        </p>
+
+                        <a
+                            href="#contact"
+                            class="card-btn"
+                        >
+                            Order This Arrangement
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 3 -->
+
+                <div class="product-card">
+
+                    <div class="product-image-wrap">
+
+                        <span class="badge">
+                            Gift Collection
+                        </span>
+
+                        <img
+                            src="images/bottle.jpg"
+                            alt="Bottle of Love floral gift"
+                            class="product-img"
+                        >
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            Bottle of Love
+                        </h3>
+
+                        <p>
+                            A beautiful bottle topped with
+                            a gorgeous floral arrangement.
+                        </p>
+
+                        <span class="price-tag">
+                            From $150+
+                        </span>
+
+                        <p class="note">
+                            Regular: $150+ Pink / $200+ Red.
+                            Deluxe: $250+ / $325+.
+                        </p>
+
+                        <a
+                            href="#contact"
+                            class="card-btn"
+                        >
+                            Order This Arrangement
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 4 -->
+
+                <div class="product-card">
+
+                    <div class="product-image-wrap">
+
+                        <span class="badge">
+                            Romance
+                        </span>
+
+                        <img
+                            src="images/heart.jpg"
+                            alt="Heart shaped Love Bouquet"
+                            class="product-img"
+                        >
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            Love Bouquet
+                        </h3>
+
+                        <p>
+                            Classic red or pink roses beautifully
+                            wrapped and presented in a heart shape.
+                        </p>
+
+                        <span class="price-tag">
+                            From $200
+                        </span>
+
+                        <p class="note">
+                            2 Dozen $200 • 3 Dozen $300 •
+                            4 Dozen $400
+                        </p>
+
+                        <a
+                            href="#contact"
+                            class="card-btn"
+                        >
+                            Order This Arrangement
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 5 -->
+
+                <div class="product-card">
+
+                    <div class="product-image-wrap">
+
+                        <span class="badge">
+                            Bright & Bold
+                        </span>
+
+                        <img
+                            src="images/sunflower.jpg"
+                            alt="Vibrant Sunrise sunflower arrangement"
+                            class="product-img"
+                        >
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            Vibrant Sunrise
+                        </h3>
+
+                        <p>
+                            A bright mix of sunflowers and premium
+                            roses designed to bring sunshine into
+                            any room.
+                        </p>
+
+                        <span class="price-tag">
+                            Custom Quote
+                        </span>
+
+                        <p class="note">
+                            Contact us for pricing.
+                        </p>
+
+                        <a
+                            href="#contact"
+                            class="card-btn"
+                        >
+                            Inquire
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CUSTOM -->
+
+    <section class="custom-section" id="custom">
+
+        <div class="custom-inner">
+
+            <img
+                src="images/custom.jpg"
+                alt="Custom Sol Flor arrangement"
+                class="custom-image"
+            >
+
+            <div>
+
+                <div class="eyebrow">
+                    Made Just For You
+                </div>
+
+                <h2>
+                    Customize Your Dream Bouquet
+                </h2>
+
+                <p>
+                    Have something special in mind?
+                    Bring your idea to Sol Flor and let us
+                    turn your vision into a beautiful floral
+                    creation.
+                </p>
+
+                <p>
+                    From favorite colors to special flowers,
+                    we'll work with you to create something
+                    truly unique.
+                </p>
+
+                <p class="custom-price">
+                    Custom arrangements starting at $250+
+                </p>
+
+                <p>
+                    Custom orders must be placed at least
+                    2 weeks in advance.
+                </p>
+
+                <a
+                    href="#contact"
+                    class="btn btn-primary"
+                >
+                    Start Your Custom Order
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHY SOL FLOR -->
+
+    <section class="why-section">
+
+        <div class="eyebrow">
+            The Sol Flor Difference
+        </div>
+
+        <div class="script-heading">
+            Why choose us?
+        </div>
+
+        <h2>
+            Flowers With Feeling
+        </h2>
+
+
+        <div class="why-grid">
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    🌸
+                </div>
+
+                <h3>
+                    Handcrafted
+                </h3>
+
+                <p>
+                    Every arrangement is carefully designed
+                    with attention to detail.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    ☀️
+                </div>
+
+                <h3>
+                    Made With Love
+                </h3>
+
+                <p>
+                    We put heart and creativity into every
+                    arrangement we create.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    🌺
+                </div>
+
+                <h3>
+                    Truly Unique
+                </h3>
+
+                <p>
+                    Your flowers should feel personal,
+                    memorable, and completely yours.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ORDER CTA -->
+
+    <section class="order-section">
+
+        <div class="eyebrow">
+            Let's Create Something Beautiful
+        </div>
+
+        <h2>
+            Ready to Make Someone Smile?
+        </h2>
+
+        <p>
+            Whether you're celebrating love, a birthday,
+            an anniversary, or simply want to brighten
+            someone's day, Sol Flor is here to help.
+        </p>
+
+        <a
+            href="#contact"
+            class="btn btn-primary"
+        >
+            Place an Order
+        </a>
+
+        <p class="deposit">
+            A 50% deposit is required to secure all orders.
+        </p>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section
+        class="contact-section"
+        id="contact"
+    >
+
+        <div class="eyebrow">
+            Let's Talk Flowers
+        </div>
+
+        <div class="script-heading">
+            We'd love to hear from you
+        </div>
+
+        <h2>
+            Contact Sol Flor
+        </h2>
+
+        <div class="contact-grid">
+
+
+            <div class="contact-card">
+
+                <div class="contact-card-icon">
+                    📱
+                </div>
+
+                <strong>
+                    Call or WhatsApp
+                </strong>
+
+                <a href="tel:+12428273567">
+                    (242) 827-3567
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-card-icon">
+                    ✉️
+                </div>
+
+                <strong>
+                    Email Us
+                </strong>
+
+                <a href="mailto:solflorbahamas@gmail.com">
+                    solflorbahamas@gmail.com
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+            SOL FLOR
+        </div>
+
+        <div class="footer-script">
+            A little sunshine in every design
+        </div>
+
+        <div class="footer-links">
+
+            <a href="#bouquets">
+                Collections
+            </a>
+
+            <a href="#custom">
+                Custom Designs
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Sol Flor Bahamas. All rights reserved.
+        </div>
+
+    </footer>
+
+
+    <!-- WHATSAPP -->
+
+    <a
+        href="https://wa.me/12428273567"
+        class="whatsapp"
+        aria-label="Contact Sol Flor on WhatsApp"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        ☎
+    </a>
+
+
+    <!-- BACK TO TOP -->
+
+    <a
+        href="#"
+        class="back-top"
+        id="backTop"
+        aria-label="Back to top"
+    >
+        ↑
+    </a>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const backTop =
+            document.getElementById("backTop");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 500) {
+
+                backTop.classList.add("show");
+
+            } else {
+
+                backTop.classList.remove("show");
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
+```
