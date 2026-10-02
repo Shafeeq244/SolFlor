@@ -11,6 +11,14 @@
 
     <meta name="theme-color" content="#f7eee8">
 
+    <!-- Content Security Policy (CSP) for Enhanced Security -->
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   img-src 'self' https://images.unsplash.com data:; 
+                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+                   font-src 'self' https://fonts.gstatic.com; 
+                   script-src 'self' 'unsafe-inline';">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -747,6 +755,7 @@
         }
 
         .product-order {
+            display: block;
             margin-top: 20px;
             width: 100%;
             background: var(--dark);
@@ -824,6 +833,8 @@
         }
 
         .featured-content .script {
+            font-family: "Great Vibes", cursive;
+            color: var(--rose-dark);
             font-size: 2.3rem;
         }
 
@@ -1076,6 +1087,8 @@
         }
 
         .contact-content .script {
+            font-family: "Great Vibes", cursive;
+            color: var(--rose-dark);
             font-size: 2.3rem;
         }
 
@@ -1200,129 +1213,60 @@
 
         .footer-social {
             display: flex;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 18px;
         }
 
-        .social-icon {
-            width: 40px;
-            height: 40px;
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.08);
             display: grid;
             place-items: center;
-            border: 1px solid rgba(255,255,255,.15);
-            border-radius: 50%;
             transition: .3s;
         }
 
-        .social-icon:hover {
+        .footer-social a:hover {
             background: var(--rose-dark);
-            border-color: var(--rose-dark);
-            transform: translateY(-3px);
         }
 
         .footer-bottom {
             position: relative;
             z-index: 2;
+            border-top: 1px solid rgba(255,255,255,.1);
             padding-top: 25px;
-            border-top: 1px solid rgba(255,255,255,.12);
             text-align: center;
-            color: #aa9d97;
+            color: #9e8d86;
             font-size: .85rem;
         }
 
         /* =====================================================
-           FLOATING WHATSAPP
+           RESPONSIVE DESIGN
         ===================================================== */
 
-        .whatsapp {
-            position: fixed;
-            right: 22px;
-            bottom: 22px;
-            z-index: 2500;
-            width: 61px;
-            height: 61px;
-            display: grid;
-            place-items: center;
-            border-radius: 50%;
-            background: #25D366;
-            color: white;
-            font-size: 1.65rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,.2);
-            transition: .3s;
-            animation: whatsappPulse 2.5s infinite;
-        }
-
-        .whatsapp:hover {
-            transform: scale(1.1);
-            animation: none;
-        }
-
-        @keyframes whatsappPulse {
-            0%,100% {
-                box-shadow: 0 10px 30px rgba(0,0,0,.2),
-                            0 0 0 0 rgba(37,211,102,.3);
+        @media (max-width: 992px) {
+            .intro-grid,
+            .product-grid,
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            50% {
-                box-shadow: 0 10px 30px rgba(0,0,0,.2),
-                            0 0 0 12px rgba(37,211,102,0);
+            .featured-box,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-content {
+                padding: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        /* =====================================================
-           BACK TO TOP
-        ===================================================== */
-
-        .top-button {
-            position: fixed;
-            right: 22px;
-            bottom: 94px;
-            z-index: 2499;
-            width: 45px;
-            height: 45px;
-            display: grid;
-            place-items: center;
-            border-radius: 50%;
-            background: var(--dark);
-            color: white;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(10px);
-            transition: .35s;
-        }
-
-        .top-button.show {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
-        }
-
-        .top-button:hover {
-            background: var(--rose-dark);
-            transform: translateY(-3px);
-        }
-
-        /* =====================================================
-           SCROLL REVEAL
-        ===================================================== */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(35px);
-            transition: opacity .8s ease, transform .8s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* =====================================================
-           RESPONSIVE — TABLET
-        ===================================================== */
-
-        @media (max-width: 1000px) {
-
+        @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
@@ -1332,1588 +1276,360 @@
                 place-items: center;
             }
 
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .why-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .intro-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-box,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-image-wrap {
-                min-height: 450px;
-            }
-
-            .featured-image {
-                min-height: 450px;
-            }
-
-            .contact-image {
-                height: 480px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        /* =====================================================
-           RESPONSIVE — MOBILE
-        ===================================================== */
-
-        @media (max-width: 650px) {
-
-            .container {
-                width: min(92%, 550px);
-            }
-
-            .nav-inner {
-                min-height: 70px;
-            }
-
-            .mobile-menu {
-                top: 70px;
-            }
-
-            .logo-main {
-                font-size: 1.05rem;
-            }
-
-            .logo-sub {
-                font-size: .85rem;
-            }
-
-            .logo-flower {
-                width: 42px;
-                height: 42px;
-                font-size: 20px;
-            }
-
-            .hero {
-                min-height: 92vh;
-                background:
-                    linear-gradient(
-                        rgba(255,250,247,.84),
-                        rgba(255,250,247,.93)
-                    ),
-                    url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&q=90&w=1200")
-                    center/cover;
-            }
-
-            .hero-content {
-                padding-top: 85px;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: clamp(3rem, 14vw, 4.5rem);
-            }
-
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-scroll {
-                display: none;
-            }
-
-            .products,
-            .featured,
-            .why,
-            .contact {
-                padding: 85px 0;
-            }
-
-            .intro {
-                padding: 85px 0;
-            }
-
-            .section-text {
-                margin-bottom: 38px;
-            }
-
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .product-image {
-                height: 380px;
-            }
-
-            .product-info p {
-                min-height: auto;
-            }
-
-            .featured-content {
-                padding: 45px 27px;
-            }
-
-            .featured-image-wrap,
-            .featured-image {
-                min-height: 350px;
-            }
-
-            .custom {
-                padding: 90px 0;
-                background-attachment: scroll;
-            }
-
-            .custom-box {
-                padding: 35px 22px;
-            }
-
+            .intro-grid,
+            .product-grid,
             .why-grid {
                 grid-template-columns: 1fr;
             }
-
-            .contact-grid {
-                gap: 45px;
-            }
-
-            .contact-image {
-                height: 390px;
-            }
-
-            .contact-image-wrap::before {
-                left: -10px;
-                bottom: -10px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 35px;
-            }
-
-            .footer-brand p {
-                margin: auto;
-            }
-
-            .footer-social {
-                justify-content: center;
-            }
-
-            .whatsapp {
-                right: 16px;
-                bottom: 16px;
-            }
-
-            .top-button {
-                right: 18px;
-                bottom: 88px;
-            }
-
-            .price-list li {
-                font-size: .9rem;
-            }
         }
 
-        /* =====================================================
-           ACCESSIBILITY
-        ===================================================== */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                scroll-behavior: auto !important;
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: .01ms !important;
-            }
-        }
-
-
-        /* Integrated Sol Flor brand artwork */
-        .brand-logo-image {
-            width: 72px;
-            height: 72px;
-            object-fit: contain;
-            border-radius: 50%;
-            display: block;
-        }
-        .loader-brand-image {
-            width: 132px;
-            height: 132px;
-            object-fit: contain;
-            border-radius: 50%;
-            margin: 0 auto 18px;
-            box-shadow: 0 16px 45px rgba(43, 35, 32, .18);
-        }
-        .footer-brand-image {
-            width: 118px;
-            height: 118px;
-            object-fit: contain;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-        @media (max-width: 768px) {
-            .brand-logo-image { width: 58px; height: 58px; }
-            .footer-brand-image { width: 96px; height: 96px; }
-        }
     </style>
 </head>
-
 <body>
 
-    <!-- =====================================================
-         LOADING SCREEN
-    ===================================================== -->
-
+    <!-- Loading Screen -->
     <div class="loader" id="loader">
-
         <div class="loader-inner">
-
-            <img class="loader-brand-image" src="website-images/sol-flor-logo.jpg" alt="Sol Flor Bahamas logo">
-
+            <div class="loader-flower">🌸</div>
+            <div class="loader-title">Sol Flor Bahamas</div>
             <div class="loader-line"></div>
-
         </div>
-
     </div>
 
-
-    <!-- =====================================================
-         SCROLL PROGRESS
-    ===================================================== -->
-
+    <!-- Scroll Progress Bar -->
     <div class="progress-bar" id="progressBar"></div>
 
-
-    <!-- =====================================================
-         NAVIGATION
-    ===================================================== -->
-
+    <!-- Navigation -->
     <nav id="navbar">
-
         <div class="container nav-inner">
-
-            <a href="#home" class="logo">
-
-                <img class="brand-logo-image" src="website-images/sol-flor-logo.jpg" alt="Sol Flor Bahamas">
+            <a href="#" class="logo">
+                <div class="logo-flower">🌸</div>
+                <div class="logo-text">
+                    <div class="logo-main">SOL FLOR</div>
+                    <div class="logo-sub">Bahamas</div>
+                </div>
             </a>
-
-
             <ul class="nav-links">
-
-                <li>
-                    <a href="#home">
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#flowers">
-                        Flowers
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#custom">
-                        Custom
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#about">
-                        About
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#contact">
-                        Contact
-                    </a>
-                </li>
-
-                <li>
-                    <a
-                        class="nav-button"
-                        href="https://wa.me/12424485304"
-                        target="_blank"
-                        rel="noopener">
-                        Order Now
-                    </a>
-                </li>
-
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#featured">Signature</a></li>
+                <li><a href="#custom">Custom Designs</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#collections" class="nav-button">Order Now</a></li>
             </ul>
-
-
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                aria-label="Open menu">
-                ☰
-            </button>
-
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
         </div>
-
     </nav>
 
-
-    <!-- =====================================================
-         MOBILE MENU
-    ===================================================== -->
-
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-
-        <a href="#home">Home</a>
-
-        <a href="#flowers">Flowers</a>
-
-        <a href="#custom">Custom</a>
-
-        <a href="#about">About</a>
-
-        <a href="#contact">Contact</a>
-
-        <a
-            class="mobile-order"
-            href="https://wa.me/12424485304"
-            target="_blank"
-            rel="noopener">
-            💬 Order Now
-        </a>
-
+        <a href="#about" class="mobile-link">About Us</a>
+        <a href="#collections" class="mobile-link">Collections</a>
+        <a href="#featured" class="mobile-link">Signature</a>
+        <a href="#custom" class="mobile-link">Custom Designs</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="#collections" class="mobile-order mobile-link">Order Now</a>
     </div>
 
-
-    <!-- =====================================================
-         HERO
-    ===================================================== -->
-
-    <section class="hero" id="home">
-
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-
             <div class="hero-content">
-
-                <div class="hero-script">
-                    Flowers made with love
-                </div>
-
-                <h1>
-                    Luxury <span>Flowers</span><br>
-                    for every moment.
-                </h1>
-
-                <p>
-                    Beautiful floral arrangements designed to make
-                    birthdays, anniversaries, celebrations and special
-                    moments unforgettable.
-                </p>
-
+                <div class="hero-script">Luxury Floral Artistry</div>
+                <h1>Elegance <span>In Every</span> Bloom</h1>
+                <p>Bespoke floral arrangements, romantic bouquets, and statement floral installations designed to elevate life’s most cherished moments across The Bahamas.</p>
                 <div class="hero-buttons">
-
-                    <a
-                        href="#flowers"
-                        class="btn btn-primary">
-                        Explore Flowers
-                    </a>
-
-                    <a
-                        href="https://wa.me/12424485304"
-                        target="_blank"
-                        rel="noopener"
-                        class="btn btn-secondary">
-                        💬 WhatsApp Us
-                    </a>
-
+                    <a href="#collections" class="btn btn-primary">Explore Collections</a>
+                    <a href="#custom" class="btn btn-secondary">Custom Request</a>
                 </div>
-
             </div>
-
         </div>
-
-
         <div class="hero-scroll">
-
-            <span>
-                Explore
-            </span>
-
+            <span>Scroll</span>
             <div class="scroll-line"></div>
-
         </div>
-
     </section>
 
-
-    <!-- =====================================================
-         INTRO
-    ===================================================== -->
-
-    <section class="intro">
-
+    <!-- Intro Section -->
+    <section class="intro" id="about">
         <div class="container">
-
-            <div class="section-label reveal">
-                The Sol Flor Experience
-            </div>
-
-            <h2 class="section-title reveal">
-                More than flowers.
-            </h2>
-
-            <p class="section-text reveal">
-                Every arrangement is carefully designed to turn
-                an ordinary moment into something beautiful.
-            </p>
-
-
+            <div class="section-label">Welcome to Sol Flor</div>
+            <h2 class="section-title">Crafted with Passion, Delivered with Elegance</h2>
+            <p class="section-text">Every bloom is hand-selected to ensure unmatched freshness, vibrant colors, and unforgettable aesthetic presence.</p>
+            
             <div class="intro-grid">
-
-                <div class="intro-card reveal">
-
-                    <div class="intro-icon">
-                        🌷
-                    </div>
-
-                    <h3>
-                        Beautifully Designed
-                    </h3>
-
-                    <p>
-                        Elegant arrangements created with attention
-                        to every detail.
-                    </p>
-
+                <div class="intro-card">
+                    <div class="intro-icon">💐</div>
+                    <h3>Fresh Premium Blooms</h3>
+                    <p>Sourced daily from world-class growers to ensure high aesthetic appeal and lasting vibrancy.</p>
                 </div>
-
-
-                <div class="intro-card reveal">
-
-                    <div class="intro-icon">
-                        💐
-                    </div>
-
-                    <h3>
-                        Made With Love
-                    </h3>
-
-                    <p>
-                        Every bouquet is prepared with care,
-                        creativity and love.
-                    </p>
-
+                <div class="intro-card">
+                    <div class="intro-icon">🎨</div>
+                    <h3>Artisanal Design</h3>
+                    <p>Thoughtfully arranged with texture, color harmony, and modern luxury design principles.</p>
                 </div>
-
-
-                <div class="intro-card reveal">
-
-                    <div class="intro-icon">
-                        ✨
-                    </div>
-
-                    <h3>
-                        Made For Moments
-                    </h3>
-
-                    <p>
-                        Perfect for birthdays, anniversaries,
-                        surprises and celebrations.
-                    </p>
-
+                <div class="intro-card">
+                    <div class="intro-icon">🎀</div>
+                    <h3>Luxury Packaging</h3>
+                    <p>Finished with signature wrappings, ribbon detailing, and customized handwritten note cards.</p>
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- =====================================================
-         FLOWERS
-    ===================================================== -->
-
-    <section class="products" id="flowers">
-
+    <!-- Products / Collections Section -->
+    <section class="products" id="collections">
         <div class="container">
-
-            <div class="section-label reveal">
-                Our Collection
-            </div>
-
-            <h2 class="section-title reveal">
-                Signature Arrangements
-            </h2>
-
-            <p class="section-text reveal">
-                Choose one of our signature designs or contact us
-                to create something completely custom.
-            </p>
-
+            <div class="section-label">Curated Collections</div>
+            <h2 class="section-title">Floral Creations</h2>
+            <p class="section-text">Choose from our signature floral styles created for anniversaries, birthdays, luxury gifting, or spontaneous romance.</p>
 
             <div class="product-grid">
-
-
-                <!-- PRODUCT 1 -->
-
-                <div class="product-card reveal">
-
+                <div class="product-card">
                     <div class="product-image-wrap">
-
-                        <img
-                            class="product-image"
-                            src="website-images/mr-hugs-and-kisses.jpg"
-                            alt="Beautiful floral arrangement">
-
+                        <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&q=80&w=800" alt="Rose Romance Bouquet" class="product-image">
                         <div class="image-overlay"></div>
-
-                        <span class="product-badge">
-                            Signature
-                        </span>
-
+                        <span class="product-badge">Bestseller</span>
                     </div>
-
                     <div class="product-info">
-
-                        <span class="product-tag">
-                            Signature
-                        </span>
-
-                        <h3>
-                            Mr. Hugs & Kisses
-                        </h3>
-
-                        <div class="price">
-                            $400
-                        </div>
-
-                        <p>
-                            A beautiful luxury flower arrangement
-                            designed to make someone feel extra special.
-                            Please order at least 2 weeks in advance.
-                        </p>
-
-                        <a
-                            class="product-order"
-                            href="https://wa.me/12424485304?text=Hi%20Sol%20Flor%20Bahamas%2C%20I%27d%20like%20to%20order%20Mr.%20Hugs%20%26%20Kisses."
-                            target="_blank"
-                            rel="noopener">
-                            Order This Arrangement
-                        </a>
-
+                        <span class="product-tag">Romantic</span>
+                        <h3>The Rose Romance</h3>
+                        <div class="price">$180.00</div>
+                        <p>A classic bouquet of premium garden roses wrapped in silk paper and finished with velvet ribbon.</p>
+                        <a href="#contact" class="product-order">Order Bouquet</a>
                     </div>
-
                 </div>
 
-
-                <!-- PRODUCT 2 -->
-
-                <div class="product-card reveal">
-
+                <div class="product-card">
                     <div class="product-image-wrap">
-
-                        <img
-                            class="product-image"
-                            src="website-images/love-bomb-bouquet.jpg"
-                            alt="Pink flower bouquet">
-
+                        <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&q=80&w=800" alt="Island Luxe Arrangement" class="product-image">
                         <div class="image-overlay"></div>
-
-                        <span class="product-badge">
-                            Best Seller
-                        </span>
-
+                        <span class="product-badge">Signature</span>
                     </div>
-
                     <div class="product-info">
-
-                        <span class="product-tag">
-                            Best Seller
-                        </span>
-
-                        <h3>
-                            Love Bomb Bouquet
-                        </h3>
-
-                        <div class="price">
-                            From $225
-                        </div>
-
-                        <p>
-                            2 Dozen — $225 Half Glitter
-                            <br>
-                            2 Dozen — $250 Whole Glitter
-                        </p>
-
-                        <a
-                            class="product-order"
-                            href="https://wa.me/12424485304?text=Hi%20Sol%20Flor%20Bahamas%2C%20I%27d%20like%20to%20order%20a%20Love%20Bomb%20Bouquet."
-                            target="_blank"
-                            rel="noopener">
-                            Order Love Bomb
-                        </a>
-
+                        <span class="product-tag">Luxury</span>
+                        <h3>Island Luxe Box</h3>
+                        <div class="price">$240.00</div>
+                        <p>An exquisite arrangement of soft-toned roses, orchids, and delicate accents presented in a luxury hatbox.</p>
+                        <a href="#contact" class="product-order">Order Box</a>
                     </div>
-
                 </div>
 
-
-                <!-- PRODUCT 3 -->
-
-                <div class="product-card reveal">
-
+                <div class="product-card">
                     <div class="product-image-wrap">
-
-                        <img
-                            class="product-image"
-                            src="website-images/bottle-of-love.jpg"
-                            alt="Elegant roses">
-
+                        <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&q=80&w=800" alt="Pastel Paradise Bouquet" class="product-image">
                         <div class="image-overlay"></div>
-
-                        <span class="product-badge">
-                            Luxury
-                        </span>
-
                     </div>
-
                     <div class="product-info">
-
-                        <span class="product-tag">
-                            Luxury
-                        </span>
-
-                        <h3>
-                            Bottle of Love
-                        </h3>
-
-                        <div class="price">
-                            From $150+
-                        </div>
-
-                        <p>
-                            Regular Pink — $150+
-                            <br>
-                            Regular Red — $200+
-                            <br>
-                            Deluxe — $250+ / $325+
-                        </p>
-
-                        <a
-                            class="product-order"
-                            href="https://wa.me/12424485304?text=Hi%20Sol%20Flor%20Bahamas%2C%20I%27d%20like%20to%20order%20a%20Bottle%20of%20Love."
-                            target="_blank"
-                            rel="noopener">
-                            Order Bottle of Love
-                        </a>
-
+                        <span class="product-tag">Soft & Elegant</span>
+                        <h3>Pastel Dreams</h3>
+                        <div class="price">$195.00</div>
+                        <p>A dreamy composition featuring blush peonies, hydrangeas, eucalyptus, and seasonal luxury flowers.</p>
+                        <a href="#contact" class="product-order">Order Bouquet</a>
                     </div>
-
                 </div>
-
-
-                <!-- PRODUCT 4 -->
-
-                <div class="product-card reveal">
-
-                    <div class="product-image-wrap">
-
-                        <img
-                            class="product-image"
-                            src="website-images/love-bouquet.jpg"
-                            alt="Romantic flower bouquet">
-
-                        <div class="image-overlay"></div>
-
-                        <span class="product-badge">
-                            Romantic
-                        </span>
-
-                    </div>
-
-                    <div class="product-info">
-
-                        <span class="product-tag">
-                            Romantic
-                        </span>
-
-                        <h3>
-                            Love Bouquet
-                        </h3>
-
-                        <div class="price">
-                            From $200
-                        </div>
-
-                        <p>
-                            2 Dozen — $200
-                            <br>
-                            3 Dozen — $300
-                            <br>
-                            4 Dozen — $400
-                        </p>
-
-                        <a
-                            class="product-order"
-                            href="https://wa.me/12424485304?text=Hi%20Sol%20Flor%20Bahamas%2C%20I%27d%20like%20to%20order%20a%20Love%20Bouquet."
-                            target="_blank"
-                            rel="noopener">
-                            Order Love Bouquet
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <!-- PRODUCT 5 -->
-
-                <div class="product-card reveal">
-
-                    <div class="product-image-wrap">
-
-                        <img
-                            class="product-image"
-                            src="website-images/vibrant-sunrise.jpg"
-                            alt="Vibrant Sunrise colorful tropical flower arrangement">
-
-                        <div class="image-overlay"></div>
-
-                        <span class="product-badge">
-                            Colorful
-                        </span>
-
-                    </div>
-
-                    <div class="product-info">
-
-                        <span class="product-tag">
-                            Colorful
-                        </span>
-
-                        <h3>
-                            Vibrant Sunrise
-                        </h3>
-
-                        <div class="price">
-                            Custom Quote
-                        </div>
-
-                        <p>
-                            A bright, colorful floral design inspired
-                            by the beauty and warmth of a Bahamian sunrise.
-                        </p>
-
-                        <a
-                            class="product-order"
-                            href="https://wa.me/12424485304?text=Hi%20Sol%20Flor%20Bahamas%2C%20I%27d%20like%20a%20quote%20for%20a%20Vibrant%20Sunrise%20arrangement."
-                            target="_blank"
-                            rel="noopener">
-                            Request A Quote
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <!-- PRODUCT 6 -->
-
-                <div class="product-card reveal">
-
-                    <div class="product-image-wrap">
-
-                        <img
-                            class="product-image"
-                            src="website-images/customize-it.jpg"
-                            alt="Custom floral arrangement design by Sol Flor Bahamas">
-
-                        <div class="image-overlay"></div>
-
-                        <span class="product-badge">
-                            Custom
-                        </span>
-
-                    </div>
-
-                    <div class="product-info">
-
-                        <span class="product-tag">
-                            Custom
-                        </span>
-
-                        <h3>
-                            Custom Arrangements
-                        </h3>
-
-                        <div class="price">
-                            Starting at $250+
-                        </div>
-
-                        <p>
-                            Tell us your vision and we'll create a
-                            unique arrangement just for you.
-                            Please order 2 weeks in advance.
-                        </p>
-
-                        <a
-                            class="product-order"
-                            href="https://wa.me/12424485304?text=Hi%20Sol%20Flor%20Bahamas%2C%20I%27d%20like%20to%20create%20a%20custom%20flower%20arrangement."
-                            target="_blank"
-                            rel="noopener">
-                            Create Custom Order
-                        </a>
-
-                    </div>
-
-                </div>
-
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- =====================================================
-         FEATURED
-    ===================================================== -->
-
-    <section class="featured">
-
+    <!-- Featured Section -->
+    <section class="featured" id="featured">
         <div class="container">
-
-            <div class="featured-box reveal">
-
+            <div class="featured-box">
                 <div class="featured-image-wrap">
-
-                    <img
-                        class="featured-image"
-                        src="website-images/love-bomb-bouquet.jpg"
-                        alt="Sol Flor luxury bouquet">
-
+                    <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&q=80&w=1000" alt="Signature Grand Arrangement" class="featured-image">
                 </div>
-
-
                 <div class="featured-content">
-
-                    <div class="script">
-                        Made for love
-                    </div>
-
-                    <h2>
-                        Love Bomb Bouquet
-                    </h2>
-
-                    <p>
-                        Make a statement with a bouquet designed
-                        to bring a little more love into someone's day.
-                    </p>
-
+                    <div class="script">Grand Floral Design</div>
+                    <h2>The Sol Flor Grandeur</h2>
+                    <p>Designed for grand gestures and special celebrations, this statement creation features over 50 hand-selected premium stems.</p>
                     <ul class="price-list">
-
-                        <li>
-                            <span>
-                                2 Dozen — Half Glitter
-                            </span>
-
-                            <strong>
-                                $225
-                            </strong>
-                        </li>
-
-                        <li>
-                            <span>
-                                2 Dozen — Whole Glitter
-                            </span>
-
-                            <strong>
-                                $250
-                            </strong>
-                        </li>
-
+                        <li><span>Classic Grandeur (50 Stems)</span> <strong>$350.00</strong></li>
+                        <li><span>Royal Grandeur (75 Stems)</span> <strong>$480.00</strong></li>
+                        <li><span>Imperial Grandeur (100 Stems)</span> <strong>$620.00</strong></li>
                     </ul>
-
-                    <a
-                        href="https://wa.me/12424485304?text=Hi%20Sol%20Flor%20Bahamas%2C%20I%27d%20like%20to%20order%20a%20Love%20Bomb%20Bouquet."
-                        target="_blank"
-                        rel="noopener"
-                        class="btn btn-primary">
-                        Order This Bouquet
-                    </a>
-
+                    <a href="#contact" class="btn btn-primary">Reserve Grand Arrangement</a>
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- =====================================================
-         CUSTOM SECTION
-    ===================================================== -->
-
+    <!-- Custom Section -->
     <section class="custom" id="custom">
-
         <div class="container">
-
-            <div class="section-label reveal">
-                Your Vision
+            <div class="section-label">Bespoke Floral Services</div>
+            <h2 class="section-title">Tailored Floral Expressions</h2>
+            <p class="section-text">Have a specific color scheme or event vision in mind? We design custom arrangements for weddings, private yachts, resorts, and intimate events.</p>
+            
+            <div class="custom-box">
+                <h3>Request a Custom Design</h3>
+                <p>Share your vision, color palettes, and budget preferences with our lead floral designer.</p>
+                <a href="#contact" class="btn btn-primary" style="background: white; color: var(--dark);">Consult Our Designer</a>
             </div>
-
-            <h2 class="section-title reveal">
-                Create Something Special
-            </h2>
-
-            <p class="section-text reveal">
-                Have a specific idea in mind?
-                Let Sol Flor bring it to life.
-            </p>
-
-            <div class="custom-box reveal">
-
-                <h3>
-                    Custom Floral Designs
-                </h3>
-
-                <p>
-                    From elegant birthday arrangements to romantic
-                    surprises and statement pieces, we can create
-                    a floral design around your colors, occasion
-                    and vision.
-                </p>
-
-                <a
-                    href="https://wa.me/12424485304?text=Hi%20Sol%20Flor%20Bahamas%2C%20I%27d%20like%20to%20create%20a%20custom%20flower%20arrangement."
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-primary">
-                    Start Your Custom Order
-                </a>
-
-                <p style="margin-top:18px;margin-bottom:0;font-size:.85rem;">
-                    Custom arrangements start at $250+.
-                    Please order at least 2 weeks in advance.
-                </p>
-
-            </div>
-
         </div>
-
     </section>
 
-
-    <!-- =====================================================
-         WHY SOL FLOR
-    ===================================================== -->
-
-    <section class="why" id="about">
-
+    <!-- Why Us Section -->
+    <section class="why">
         <div class="container">
-
-            <div class="section-label reveal">
-                Why Sol Flor
-            </div>
-
-            <h2 class="section-title reveal">
-                Designed to be remembered.
-            </h2>
-
-            <p class="section-text reveal">
-                We believe flowers should feel personal,
-                beautiful and unforgettable.
-            </p>
-
-
             <div class="why-grid">
-
-                <div class="why-card reveal">
-
-                    <div class="why-icon">
-                        🌸
-                    </div>
-
-                    <h3>
-                        Elegant
-                    </h3>
-
-                    <p>
-                        Beautiful designs with a luxury finish.
-                    </p>
-
+                <div class="why-card">
+                    <div class="why-icon">🚚</div>
+                    <h3>White-Glove Delivery</h3>
+                    <p>Hand-delivered across Nassau & Paradise Island with care and precision.</p>
                 </div>
-
-
-                <div class="why-card reveal">
-
-                    <div class="why-icon">
-                        💕
-                    </div>
-
-                    <h3>
-                        Thoughtful
-                    </h3>
-
-                    <p>
-                        Every arrangement is made with intention.
-                    </p>
-
+                <div class="why-card">
+                    <div class="why-icon">🌿</div>
+                    <h3>Uncompromising Quality</h3>
+                    <p>Only top-tier blooms chosen for longevity, scent, and perfection.</p>
                 </div>
-
-
-                <div class="why-card reveal">
-
-                    <div class="why-icon">
-                        ✨
-                    </div>
-
-                    <h3>
-                        Unique
-                    </h3>
-
-                    <p>
-                        Designs that help your gift stand out.
-                    </p>
-
+                <div class="why-card">
+                    <div class="why-icon">💌</div>
+                    <h3>Personalized Touch</h3>
+                    <p>Custom calligraphy note card included with every order.</p>
                 </div>
-
-
-                <div class="why-card reveal">
-
-                    <div class="why-icon">
-                        🇧🇸
-                    </div>
-
-                    <h3>
-                        Bahamian
-                    </h3>
-
-                    <p>
-                        Proudly creating beautiful floral moments
-                        in The Bahamas.
-                    </p>
-
+                <div class="why-card">
+                    <div class="why-icon">✨</div>
+                    <h3>Bespoke Aesthetic</h3>
+                    <p>Tailored color palettes crafted specifically for your occasion.</p>
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- =====================================================
-         CTA
-    ===================================================== -->
-
+    <!-- CTA Section -->
     <section class="cta">
-
         <div class="container">
-
-            <div class="section-label reveal">
-                Ready to order?
-            </div>
-
-            <h2 class="reveal">
-                Send someone flowers.
-                <br>
-                Make their day.
-            </h2>
-
-            <p class="reveal">
-                Contact Sol Flor Bahamas today to place your order
-                or start creating your custom arrangement.
-            </p>
-
-            <a
-                href="https://wa.me/12424485304"
-                target="_blank"
-                rel="noopener"
-                class="btn btn-primary reveal">
-                💬 Order Through WhatsApp
-            </a>
-
-            <div class="deposit">
-                50% deposit required for orders.
-            </div>
-
+            <h2>Brighten Someone’s Day Today</h2>
+            <p>Send a breathtaking gift of luxury flowers in The Bahamas. Same-day & advance reservations available.</p>
+            <a href="#contact" class="btn btn-primary">Place an Order</a>
+            <div class="deposit">Custom event bookings require prior consultation.</div>
         </div>
-
     </section>
 
-
-    <!-- =====================================================
-         CONTACT
-    ===================================================== -->
-
+    <!-- Contact Section -->
     <section class="contact" id="contact">
-
         <div class="container">
-
             <div class="contact-grid">
-
-                <div class="contact-image-wrap reveal">
-
-                    <img
-                        class="contact-image"
-                        src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&q=90&w=1400"
-                        alt="Beautiful Sol Flor flower arrangement">
-
+                <div class="contact-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1527061011665-3652c757a4d4?auto=format&fit=crop&q=80&w=800" alt="Florist Workspace" class="contact-image">
                 </div>
-
-
-                <div class="contact-content reveal">
-
-                    <div class="script">
-                        Let's create something beautiful
-                    </div>
-
-                    <h2>
-                        Get in touch with Sol Flor.
-                    </h2>
-
-                    <p>
-                        Ready to place an order?
-                        Have a question about our arrangements?
-                        We'd love to hear from you.
-                    </p>
-
+                <div class="contact-content">
+                    <div class="script">Get in Touch</div>
+                    <h2>Let’s Create Something Beautiful</h2>
+                    <p>Contact us to order floral arrangements, request custom quotes, or inquire about event floral installations.</p>
 
                     <div class="contact-info">
-
-                        <a
-                            href="tel:+12424485304"
-                            class="contact-item">
-
-                            <div class="contact-item-icon">
-                                📞
-                            </div>
-
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📍</div>
                             <div>
-
-                                <strong>
-                                    Phone
-                                </strong>
-
-                                <span>
-                                    (242) 448-5304
-                                </span>
-
+                                <strong>Location</strong>
+                                <span>Nassau, The Bahamas</span>
                             </div>
+                        </div>
 
-                        </a>
-
-
-                        <a
-                            href="mailto:solflorbahamas@gmail.com"
-                            class="contact-item">
-
-                            <div class="contact-item-icon">
-                                ✉️
-                            </div>
-
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📞</div>
                             <div>
-
-                                <strong>
-                                    Email
-                                </strong>
-
-                                <span>
-                                    solflorbahamas@gmail.com
-                                </span>
-
+                                <strong>Phone / WhatsApp</strong>
+                                <span>+1 (242) 555-0199</span>
                             </div>
+                        </div>
 
-                        </a>
-
-
-                        <a
-                            href="https://wa.me/12424485304"
-                            target="_blank"
-                            rel="noopener"
-                            class="contact-item">
-
-                            <div class="contact-item-icon">
-                                💬
-                            </div>
-
+                        <div class="contact-item">
+                            <div class="contact-item-icon">✉️</div>
                             <div>
-
-                                <strong>
-                                    WhatsApp
-                                </strong>
-
-                                <span>
-                                    Message us to order
-                                </span>
-
+                                <strong>Email Us</strong>
+                                <span>orders@solflorbahamas.com</span>
                             </div>
-
-                        </a>
-
+                        </div>
                     </div>
 
-
-                    <a
-                        href="https://wa.me/12424485304"
-                        target="_blank"
-                        rel="noopener"
-                        class="btn btn-primary">
-                        Contact Us
-                    </a>
-
+                    <!-- Secured External Link -->
+                    <a href="https://wa.me/12425550199" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Message on WhatsApp</a>
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- =====================================================
-         FOOTER
-    ===================================================== -->
-
+    <!-- Footer -->
     <footer>
-
         <div class="container">
-
             <div class="footer-grid">
-
                 <div class="footer-brand">
-
-                    <img class="footer-brand-image" src="website-images/sol-flor-logo.jpg" alt="Sol Flor Bahamas logo">
-
-                    <p>
-                        Luxury floral designs made with love
-                        in The Bahamas.
-                    </p>
-
+                    <div class="footer-logo">SOL FLOR BAHAMAS</div>
+                    <p>Luxury floral design studio in The Bahamas specializing in luxury bouquets, floral art, and bespoke event installations.</p>
                     <div class="footer-social">
-
-                        <a
-                            href="https://www.instagram.com/"
-                            target="_blank"
-                            rel="noopener"
-                            class="social-icon"
-                            aria-label="Instagram">
-                            ◎
-                        </a>
-
-                        <a
-                            href="https://wa.me/12424485304"
-                            target="_blank"
-                            rel="noopener"
-                            class="social-icon"
-                            aria-label="WhatsApp">
-                            💬
-                        </a>
-
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Pinterest">📌</a>
                     </div>
-
                 </div>
-
-
                 <div>
-
-                    <h3>
-                        Quick Links
-                    </h3>
-
+                    <h3>Quick Links</h3>
                     <ul>
-
-                        <li>
-                            <a href="#home">
-                                Home
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#flowers">
-                                Flowers
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#custom">
-                                Custom Orders
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#about">
-                                About
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#contact">
-                                Contact
-                            </a>
-                        </li>
-
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#collections">Collections</a></li>
+                        <li><a href="#featured">Signature Piece</a></li>
+                        <li><a href="#custom">Custom Designs</a></li>
                     </ul>
-
                 </div>
-
-
                 <div>
-
-                    <h3>
-                        Contact
-                    </h3>
-
+                    <h3>Hours</h3>
                     <ul>
-
-                        <li>
-                            <a href="tel:+12424485304">
-                                (242) 448-5304
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="mailto:solflorbahamas@gmail.com">
-                                solflorbahamas@gmail.com
-                            </a>
-                        </li>
-
-                        <li>
-                            The Bahamas 🇧🇸
-                        </li>
-
+                        <li>Monday - Friday: 9:00 AM - 6:00 PM</li>
+                        <li>Saturday: 9:00 AM - 4:00 PM</li>
+                        <li>Sunday: Closed (Pre-booked Events Only)</li>
                     </ul>
-
                 </div>
-
             </div>
-
-
             <div class="footer-bottom">
-
-                © 2026 Sol Flor Bahamas.
-                All rights reserved.
-
+                <p>&copy; 2026 Sol Flor Bahamas. All rights reserved.</p>
             </div>
-
         </div>
-
     </footer>
 
-
-    <!-- =====================================================
-         FLOATING WHATSAPP
-    ===================================================== -->
-
-    <a
-        class="whatsapp"
-        href="https://wa.me/12424485304"
-        target="_blank"
-        rel="noopener"
-        aria-label="Contact Sol Flor Bahamas on WhatsApp">
-        💬
-    </a>
-
-
-    <!-- =====================================================
-         BACK TO TOP
-    ===================================================== -->
-
-    <a
-        href="#home"
-        class="top-button"
-        id="topButton"
-        aria-label="Back to top">
-        ↑
-    </a>
-
-
-    <!-- =====================================================
-         JAVASCRIPT
-    ===================================================== -->
-
+    <!-- JavaScript -->
     <script>
-
-        /* =====================================================
-           LOADER
-        ===================================================== */
-
-        window.addEventListener("load", () => {
-
-            setTimeout(() => {
-
-                document
-                    .getElementById("loader")
-                    .classList.add("hide");
-
-            }, 700);
-
+        // Hide Loading Screen when fully loaded
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.classList.add('hide');
         });
 
+        // Sticky Navbar Effect & Scroll Progress Bar
+        const navbar = document.getElementById('navbar');
+        const progressBar = document.getElementById('progressBar');
 
-        /* =====================================================
-           NAVBAR + BACK TO TOP + PROGRESS
-        ===================================================== */
-
-        const navbar =
-            document.getElementById("navbar");
-
-        const topButton =
-            document.getElementById("topButton");
-
-        const progressBar =
-            document.getElementById("progressBar");
-
-
-        window.addEventListener("scroll", () => {
-
-            const scroll =
-                window.scrollY;
-
-            if (scroll > 60) {
-
-                navbar.classList.add("scrolled");
-
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
             } else {
-
-                navbar.classList.remove("scrolled");
-
+                navbar.classList.remove('scrolled');
             }
 
-
-            if (scroll > 500) {
-
-                topButton.classList.add("show");
-
-            } else {
-
-                topButton.classList.remove("show");
-
-            }
-
-
-            const documentHeight =
-                document.documentElement.scrollHeight -
-                document.documentElement.clientHeight;
-
-            const progress =
-                (scroll / documentHeight) * 100;
-
-            progressBar.style.width =
-                progress + "%";
-
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + "%";
         });
 
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        /* =====================================================
-           MOBILE MENU
-        ===================================================== */
-
-        const menuToggle =
-            document.getElementById("menuToggle");
-
-        const mobileMenu =
-            document.getElementById("mobileMenu");
-
-
-        menuToggle.addEventListener("click", () => {
-
-            mobileMenu.classList.toggle("open");
-
-            menuToggle.textContent =
-                mobileMenu.classList.contains("open")
-                    ? "✕"
-                    : "☰";
-
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            menuToggle.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
         });
 
-
-        document
-            .querySelectorAll(".mobile-menu a")
-            .forEach(link => {
-
-                link.addEventListener("click", () => {
-
-                    mobileMenu.classList.remove("open");
-
-                    menuToggle.textContent = "☰";
-
-                });
-
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuToggle.textContent = '☰';
             });
-
-
-        /* =====================================================
-           SCROLL REVEAL
-        ===================================================== */
-
-        const revealElements =
-            document.querySelectorAll(".reveal");
-
-
-        const revealObserver =
-            new IntersectionObserver(
-
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.classList.add("visible");
-
-                            revealObserver.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    });
-
-                },
-
-                {
-                    threshold: .12
-                }
-
-            );
-
-
-        revealElements.forEach(element => {
-
-            revealObserver.observe(element);
-
         });
-
-
-        /* =====================================================
-           CLOSE MOBILE MENU WITH ESCAPE
-        ===================================================== */
-
-        document.addEventListener("keydown", event => {
-
-            if (event.key === "Escape") {
-
-                mobileMenu.classList.remove("open");
-
-                menuToggle.textContent = "☰";
-
-            }
-
-        });
-
     </script>
-
 </body>
 </html>
